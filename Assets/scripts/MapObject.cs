@@ -12,10 +12,9 @@ public class MapObject : MonoBehaviour
 
     void Start()
     {
-        
+        FindObjectOfType<MapController>().RegisterObject(this);
     }
 
-    // Update is called once per frame
     void Update()
     {
         
