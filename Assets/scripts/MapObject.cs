@@ -5,13 +5,14 @@ using UnityEngine.UI;
 
 public class MapObject : MonoBehaviour
 {
-    [SerializeField] private Sprite sprite;
-    [SerializeField] GameObject owner;
+    [SerializeField] public Sprite sprite;
+    [SerializeField] public GameObject owner;
     public Image icon;
 
 
     void Start()
     {
+        owner = gameObject;
         FindObjectOfType<MapController>().RegisterObject(this);
     }
 
