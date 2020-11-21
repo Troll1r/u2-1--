@@ -11,7 +11,7 @@ public class MapController : MonoBehaviour
     [SerializeField] RectTransform radarPanel;
 
     [SerializeField] Transform player;
-
+    
     [SerializeField][Range (1, 10)] float scale = 5;
     [SerializeField] float maxDistace, viewDistance;
     [SerializeField] RectTransform playerIcon;
