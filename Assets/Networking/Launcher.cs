@@ -8,8 +8,9 @@ using Photon.Realtime;
 
 public class Launcher : MonoBehaviourPunCallbacks
 {
+    [SerializeField] string ip;
     [SerializeField] string gameVersion = "1";
-    [SerializeField] byte maxPlayers = 8;
+    [SerializeField] byte maxPlayers = 16;
 
     public void JoinRoom () 
     {
@@ -27,11 +28,15 @@ public class Launcher : MonoBehaviourPunCallbacks
     void Awake()
     {
         PhotonNetwork.AutomaticallySyncScene = true;
-        Connect("10.3.17.5", 5055 , "");
+        Connect(ip, 5055 , "");
+        //PhotonNetwork.ConnectUsingSettings();
+        PhotonNetwork.AuthValues = new AuthenticationValues();
+        PhotonNetwork.AuthValues.UserId = System.DateTime.Now.ToString();
+        print(PhotonNetwork.AuthValues.UserId);
 
-            
-        
-        
+
+
+
     }
     public override void OnJoinedRoom()
     {
@@ -52,7 +57,7 @@ public class Launcher : MonoBehaviourPunCallbacks
     {
         if (Input.GetKeyDown(KeyCode.Return))
             JoinRoom();
-        print(PhotonNetwork.IsConnectedAndReady);
+        print(PhotonNetwork.NetworkClientState);
 
      }
 

@@ -180,5 +180,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962176257fce0c246a1cac39dab9707a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ip: 10.3.17.5
   gameVersion: 1
-  maxPlayer: 8
+  maxPlayers: 20
