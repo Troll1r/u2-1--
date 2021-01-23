@@ -43,7 +43,7 @@ public class MapController : MonoBehaviour
     void Update()
     {
         Vector3 tmp = Vector3.zero;
-        tmp.z = player.rotation.eulerAngles.y;
+        tmp.z = GameManager.Instance().localPlayer.transform.rotation.eulerAngles.y;
         radarPanel.localRotation = Quaternion.Euler(tmp);
 
         playerIcon.localRotation = Quaternion.Euler(-tmp);
@@ -52,8 +52,8 @@ public class MapController : MonoBehaviour
         {
             // calc coords
             Vector3 rel = Vector3.zero;
-            rel.x = mapObject.owner.transform.position.x - player.position.x;
-            rel.y = mapObject.owner.transform.position.z - player.position.z;
+            rel.x = mapObject.owner.transform.position.x - player.position.x - GameManager.Instance().localPlayer.transform.rotation.eulerAngles.y;
+            rel.y = mapObject.owner.transform.position.z - player.position.z - GameManager.Instance().localPlayer.transform.rotation.eulerAngles.y;
 
             if (rel.magnitude > viewDistance)
             {
