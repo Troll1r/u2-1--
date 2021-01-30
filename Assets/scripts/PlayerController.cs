@@ -41,12 +41,6 @@ public class PlayerController : MonoBehaviourPunCallbacks
         interactiveItem = hit.collider?
             .GetComponent<InteractiveItem>();
 
-        if (interactiveItem)
-            GameManager.Instance().hintText.text = "Press E to use " +
-                interactiveItem.ItemName;
-        else
-            GameManager.Instance().hintText.text = "";
-
         if (Input.GetMouseButtonDown(0))
         {
             weapon.Attack();
@@ -55,6 +49,14 @@ public class PlayerController : MonoBehaviourPunCallbacks
         {
             interactiveItem?.Use();
         }
+
+        if (interactiveItem)
+            GameManager.Instance().hintText.text = "Press E to use " +
+                interactiveItem.ItemName;
+        else
+            GameManager.Instance().hintText.text = "";
+
+
 
     }
 }
